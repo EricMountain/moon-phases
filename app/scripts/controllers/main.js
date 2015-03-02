@@ -30,19 +30,11 @@ angular.module('moonPhasesApp')
             var n = 0;
             var dN = $scope.newMoonFinder(n);
             var dNPlusOne = $scope.newMoonFinder(n + 1);
-            //var julian20000101 = new Date(Date.UTC(2000, 0, 1, 0, 0, 0, 0)).getJulian();
-            //var julian19700101 = new Date(Date.UTC(1970, 0, 1, 0, 0, 0, 0)).getJulian();
-
-            //console.log(new Date(Date.UTC(1970, 0, 1, 0, 0, 0, 0)));
-            //console.log('julian19700101: ', julian19700101);
-            //console.log('julian20000101: ', julian20000101);
-            //console.log(n, dN, dNPlusOne, dNPlusOne - dN, julian20000101, '.', dN - julian20000101, dNPlusOne - julian20000101);
             
             while (dN > datetimeJulian || dNPlusOne < datetimeJulian) {
                 n += 1;
                 dN = $scope.newMoonFinder(n);
                 dNPlusOne = $scope.newMoonFinder(n + 1);
-                //console.log(n, dN, dNPlusOne, dNPlusOne - dN);
             }
 
             return dN;
