@@ -14,7 +14,8 @@ angular.module('moonPhasesApp')
         $scope.moonPhaseModulo = 29.5305888610;
         $scope.moonPhaseBaseJulian = 0;
         $scope.moonPhase = 0;
-        $scope.moonPhasePct = 0;
+        $scope.moonPhaseRatio = 0;
+        $scope.smallArcRadius = 170;
 
         Date.prototype.getJulian = function() {
             return this.getTime() / 86400000 + 2440587.5;
@@ -45,6 +46,7 @@ angular.module('moonPhasesApp')
             $scope.moonPhaseBaseJulian = $scope.rangeFinder($scope.datetimeJulian);
             $scope.moonPhase = ($scope.datetimeJulian - $scope.moonPhaseBaseJulian) % $scope.moonPhaseModulo;
             $scope.moonPhaseRatio = $scope.moonPhase / $scope.moonPhaseModulo;
+            $scope.smallArcRadius = (1 - (0.5 - $scope.moonPhaseRatio)) * 206;
         };
 
         $scope.update();

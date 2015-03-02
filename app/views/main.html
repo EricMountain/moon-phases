@@ -13,4 +13,22 @@
   <br>New moon base Julian: {{moonPhaseBaseJulian}}
   <br>Moon phase: {{moonPhase}}
   <br>Moon phase ratio: {{moonPhaseRatio}}
+  <br>Small arc radius: {{smallArcRadius}}
+</div>
+
+<div>
+  <svg width="559" height="448" style="background-image: url(images/fm1222_gendler.jpg);">
+    <defs>
+      <filter id="blur" x="0" y="0">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+      </filter>
+    </defs>
+    <!-- * Move to centre.
+         * Move to bottom of moon.
+         * Arc from bottom to top of moon, with moon's radius.
+         * Arc from top to bottom of moon, with reduced radius.
+      -->
+    <path d="M280,219 m0,206 a206,206 0 0,1 0,-412 a{{smallArcRadius}},206 0 0,0 0,412"
+        fill="black" opacity="0.85" filter="url(#blur)"/>
+  </svg>
 </div>
