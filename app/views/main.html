@@ -27,8 +27,12 @@
          * Move to bottom of moon.
          * Arc from bottom to top of moon, with moon's radius.
          * Arc from top to bottom of moon, with reduced radius.
+ filter="url(#blur)" stroke="green" stroke-width="1"
       -->
-    <path d="M280,219 m0,206 a206,206 0 0,1 0,-412 a{{smallArcRadius}},206 0 0,0 0,412"
-        fill="black" opacity="0.85" filter="url(#blur)"/>
+    <path d="M{{moonCentreX}},{{moonCentreY}}
+             m0,{{moonRadius}}
+             a{{moonRadius}},{{moonRadius}} 0 0,{{arcSweep}} 0,-{{moonDiametre}}
+             a{{smallArcRadius}},{{moonRadius}} 0 0,{{smallArcSweep}} 0,{{moonDiametre}}"
+          fill="black" opacity="0.8" filter="url(#blur)"/>
   </svg>
 </div>
