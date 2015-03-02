@@ -22,7 +22,7 @@ angular.module('moonPhasesApp')
 
         // http://en.wikipedia.org/wiki/New_moon#Determining_new_moons:_an_approximate_formula
         $scope.newMoonFinder = function(n) {
-            var julian20000101 = new Date(2000, 1, 1, 0, 0, 0, 0).getJulian();
+            var julian20000101 = new Date(Date.UTC(2000, 0, 1, 0, 0, 0, 0)).getJulian();
             return 5.597661 + 29.5305888610 * n + (102.026 * Math.pow(10, -12)) * n * n - 0.000739 - (235 * Math.pow(10, -12)) * n * n + julian20000101;
         };
 
@@ -30,11 +30,19 @@ angular.module('moonPhasesApp')
             var n = 0;
             var dN = $scope.newMoonFinder(n);
             var dNPlusOne = $scope.newMoonFinder(n + 1);
+            //var julian20000101 = new Date(Date.UTC(2000, 0, 1, 0, 0, 0, 0)).getJulian();
+            //var julian19700101 = new Date(Date.UTC(1970, 0, 1, 0, 0, 0, 0)).getJulian();
 
+            //console.log(new Date(Date.UTC(1970, 0, 1, 0, 0, 0, 0)));
+            //console.log('julian19700101: ', julian19700101);
+            //console.log('julian20000101: ', julian20000101);
+            //console.log(n, dN, dNPlusOne, dNPlusOne - dN, julian20000101, '.', dN - julian20000101, dNPlusOne - julian20000101);
+            
             while (dN > datetimeJulian || dNPlusOne < datetimeJulian) {
                 n += 1;
                 dN = $scope.newMoonFinder(n);
                 dNPlusOne = $scope.newMoonFinder(n + 1);
+                //console.log(n, dN, dNPlusOne, dNPlusOne - dN);
             }
 
             return dN;
@@ -46,4 +54,6 @@ angular.module('moonPhasesApp')
             $scope.moonPhase = ($scope.datetimeJulian - $scope.moonPhaseBaseJulian) % $scope.moonPhaseModulo;
             $scope.moonPhaseRatio = $scope.moonPhase / $scope.moonPhaseModulo;
         };
+
+        $scope.update();
   });
