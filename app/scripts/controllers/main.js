@@ -9,7 +9,9 @@
  */
 angular.module('moonPhasesApp')
     .controller('MainCtrl', ['$scope', function ($scope) {
+
         var moon = window.moon;
+
         $scope.datetime = new Date();
 
         $scope.moonCentreX = 281;
