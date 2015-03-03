@@ -8,12 +8,13 @@
  * Controller of the moonPhasesApp
  */
 angular.module('moonPhasesApp')
-    .controller('MainCtrl', ['$scope', function ($scope) {
+    .controller('MainCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 
         var moon = window.moon;
 
         $scope.datetime = new Date();
-
+        $scope.animate = false;
+        
         $scope.moonCentreX = 281;
         $scope.moonCentreY = 220;
         $scope.moonRadius = 205;
@@ -27,5 +28,15 @@ angular.module('moonPhasesApp')
                                                      $scope.datetime);
         };
 
+        $scope.toggleAnimate = function() {
+            (function x() {
+                if ($scope.animate) {
+                    $scope.datetime = new Date($scope.datetime.getTime() + 3600 * 1000);
+                    $scope.update();
+                    $timeout(x, 50);
+                }
+            })();
+        };
+        
         $scope.update();
   }]);
