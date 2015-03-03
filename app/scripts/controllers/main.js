@@ -31,9 +31,9 @@ angular.module('moonPhasesApp')
         $scope.toggleAnimate = function() {
             (function x() {
                 if ($scope.animate) {
-                    $scope.datetime = new Date($scope.datetime.getTime() + 3600 * 1000);
+                    $scope.datetime = new Date($scope.datetime.getTime() + 3600 * 1000 * 2);
                     $scope.update();
-                    $timeout(x, 50);
+                    $timeout(x, 60);
                 }
             })();
         };
