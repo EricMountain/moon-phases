@@ -14,15 +14,7 @@
         <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
       </filter>
     </defs>
-    <!-- * Move to centre.
-         * Move to bottom of moon.
-         * Arc from bottom to top of moon, with moon's radius.
-         * Arc from top to bottom of moon, with reduced radius.
-      -->
-    <path d="M{{moonCentreX}},{{moonCentreY}}
-             m0,{{moonRadius}}
-             a{{moonRadius}},{{moonRadius}} 0 0,{{arcSweep}} 0,-{{moonDiametre}}
-             a{{smallArcRadius}},{{moonRadius}} 0 0,{{smallArcSweep}} 0,{{moonDiametre}}"
+    <path d="{{shadowPath}}"
           fill="black" opacity="0.8" filter="url(#blur)"/>
   </svg>
 </div>
