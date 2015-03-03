@@ -30,6 +30,13 @@ window.moon = (function() {
 
     function calculatePhaseRatio(datetime) {
         var moonPhaseModulo = 29.5305888610;
+
+        // TODO Handle years before 2000
+        if (datetime.getFullYear() < 2000) {
+            console.warn('Years before 2000 not handled for moon phase calculation.');
+            return 0;
+        }
+        
         var datetimeJulian = datetime.getJulian();
         var moonPhaseBaseJulian = findPreviousNewMoon(datetimeJulian);
         var moonPhase = (datetimeJulian - moonPhaseBaseJulian) % moonPhaseModulo;
