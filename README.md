@@ -2,6 +2,7 @@
 
 Moon phase web-app, intended as an intro to SVG, JS etc for my kids.
 
+Only handles moon cycles since 1st Jan 2000.
 
 # Links
 
