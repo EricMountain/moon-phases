@@ -12,15 +12,6 @@ angular.module('moonPhasesApp')
 
         var moon = window.moon;
 
-        $scope.datetime = new Date();
-        $scope.animate = false;
-        
-        $scope.moonCentreX = 281;
-        $scope.moonCentreY = 220;
-        $scope.moonRadius = 205;
-
-        $scope.shadowPath = '';
-        
         $scope.update = function() {
             $scope.shadowPath = moon.buildShadowPath($scope.moonCentreX,
                                                      $scope.moonCentreY,
@@ -37,6 +28,18 @@ angular.module('moonPhasesApp')
                 }
             })();
         };
-        
-        $scope.update();
+
+        $scope.now = function() {
+            $scope.datetime = new Date();
+            $scope.animate = false;
+            $scope.update();
+        };
+
+        $scope.moonCentreX = 281;
+        $scope.moonCentreY = 220;
+        $scope.moonRadius = 205;
+
+        $scope.shadowPath = '';
+
+        $scope.now();
   }]);
