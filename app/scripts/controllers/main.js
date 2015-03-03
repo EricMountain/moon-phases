@@ -25,7 +25,6 @@ angular.module('moonPhasesApp')
                                                      $scope.moonCentreY,
                                                      $scope.moonRadius,
                                                      $scope.datetime);
-
         };
 
         $scope.update();
