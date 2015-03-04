@@ -81,3 +81,13 @@ body {
     border-bottom: 0;
   }
 }
+
+/* moon-phases customisations */
+body, .form-control, .btn-default {
+    background-color: black;
+    color: lightgray;
+}
+
+.header {
+    border-bottom: none;
+}
