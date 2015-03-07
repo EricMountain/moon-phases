@@ -91,3 +91,7 @@ body, .form-control, .btn-default {
 .header {
     border-bottom: none;
 }
+
+.container {
+    margin-top: 15px;
+}
