@@ -20,7 +20,7 @@ angular
   .config(function ($routeProvider) {
       var params = document.getElementById('app-script');
       var template = 'main';
-      if (typeof params !== 'undefined' && params !== null) {
+      if (params) {
           template = params.getAttribute('data-template');
       }
     $routeProvider
