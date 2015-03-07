@@ -18,11 +18,19 @@ angular
     'ngTouch'
   ])
   .config(function ($routeProvider) {
-    var params = document.getElementById('app-script');
+      var params = document.getElementById('app-script');
+      var template = 'main';
+      if (typeof params !== 'undefined' && params !== null) {
+          template = params.getAttribute('data-template');
+      }
     $routeProvider
       .when('/', {
-        templateUrl: 'views/' + params.getAttribute('data-template') + '.html',
+        templateUrl: 'views/' + template + '.html',
         controller: 'MainCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
       })
       .otherwise({
         redirectTo: '/'
