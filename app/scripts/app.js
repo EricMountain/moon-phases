@@ -18,9 +18,14 @@ angular
     'ngTouch'
   ])
   .config(function ($routeProvider) {
+      var params = document.getElementById('app-script');
+      var template = 'main';
+      if (params) {
+          template = params.getAttribute('data-template');
+      }
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/' + template + '.html',
         controller: 'MainCtrl'
       })
       .when('/about', {
